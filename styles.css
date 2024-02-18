@@ -89,15 +89,16 @@ form p {
   border-radius: 5px;
 }
 .btnsub{
-  position: fixed;
-  bottom: 234px;
-  left: 46%;
   background-color: #E9E9E9; /* Ash color */
   color: #030637; /* Blue color */
   border: 2px solid #E9E9E9; /* Ash color */
   cursor: pointer;
   padding: 10px 15px;
   border-radius: 5px;
+}
+.colorful.btnsub:hover{
+  background-color: #030637; /* Blue color on hover */
+  color: #E9E9E9; /* Ash color on hover */  
 }
 
 .colorful button:hover {
