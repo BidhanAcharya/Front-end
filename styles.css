@@ -16,6 +16,13 @@ body {
   background: #b8c2dc;
 }
 
+.active-section {
+  display: block;
+}
+
+.inactive-section {
+  display: none;
+}
 ::selection {
   color: #fff;
   background: #6990F2;
@@ -89,6 +96,7 @@ form p {
   border-radius: 5px;
 }
 .btnsub{
+  position:relative;
   background-color: #E9E9E9; /* Ash color */
   color: #030637; /* Blue color */
   border: 2px solid #E9E9E9; /* Ash color */

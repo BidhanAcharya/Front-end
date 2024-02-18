@@ -7,6 +7,29 @@ resultDiv = document.getElementById("result");
 form.addEventListener("click", () =>{
   fileInput.click();
 });
+const fileUploader = document.getElementById('file-uploader');
+const linkVerifier = document.getElementById('link-verifier');
+const switchToFileUploaderButton = document.getElementById('switch-to-file-uploader');
+const switchToLinkVerifierButton = document.getElementById('switch-to-link-verifier');
+
+switchToLinkVerifierButton.addEventListener('click', () => {
+  fileUploader.classList.add('inactive-section');
+  fileUploader.classList.remove('active-section');
+  linkVerifier.classList.add('active-section');
+  linkVerifier.classList.remove('inactive-section');
+});
+
+switchToFileUploaderButton.addEventListener('click', () => {
+  linkVerifier.classList.add('inactive-section');
+  linkVerifier.classList.remove('active-section');
+  fileUploader.classList.add('active-section');
+  fileUploader.classList.remove('inactive-section');
+});
+
+function submission(){
+  form.action = "http://127.0.0.1:8000/extract-text";
+  form.submit();
+  };
 
 fileInput.onchange = ({target})=>{
   let file = target.files[0];
