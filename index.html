@@ -8,6 +8,25 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
 </head>
 <body>
+
+  <div id="mySidenav" class="sidenav">
+    <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+    <!-- <a href="#">About</a>
+    <a href="#">Services</a>
+    <a href="#">Clients</a>
+    <a href="#">Contact</a> -->
+    <iframe src="https://tunepal-my.sharepoint.com/personal/bidhan_772417_thc_tu_edu_np/_layouts/15/Doc.aspx?sourcedoc={76b8cdbd-1976-4266-ae63-31573776fbf2}&amp;action=embedview&amp;wdAr=1.3333333333333333" style="width:100%; height:100%; border: none;"></iframe>
+  </div>
+  
+  <!-- <div id="main">
+
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; open</span>
+  </div> -->
+
+  <div class="top-left">
+    <span style="font-size:30px;cursor:pointer" onclick="openNav()">&#9776; </span>
+  </div>
+
   <div class="wrapper">
     <header>File Uploader JavaScript</header>
     <form action="http://127.0.0.1:8000/extract-text" enctype="multipart/form-data" method="post">
@@ -20,13 +39,20 @@
     <section class="uploaded-area"></section>
 
     <!-- Move the "Paste ArXiv Link" section here -->
+    
+    <form id="check"  enctype="multipart/form-data" method="post">
     <div class="colorful">
       <label for="arxivLink">Paste ArXiv Link Below:</label>
       <input type="text" id="arxivLink" placeholder="Enter the link of from ArXiv.org">
+
+
       <button onclick="validateLink()">Validate</button>
+   
       <div id="result"></div>
     </div>
+  </form>
   </div>
+  
 
   <script src="script.js"></script>
 </body>

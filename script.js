@@ -61,15 +61,65 @@ function uploadFile(name){
   let data = new FormData(form);
   xhr.send(data);
 }
+
 function validateLink() {
   var input = arxivLinkInput.value;
 
   // Regular expression to check if the input is a valid arXiv link
-  var arxivRegex = /^https:\/\/arxiv\.org\/ftp\/arxiv\/papers\/\d{4}\/\d{4}(\.(\d+))?(\.pdf)$/;
+  var arxivRegex = /^https:\/\/arxiv\.org\/abs\/\d{4}\.\d{5}$/;
 
   if (arxivRegex.test(input)) {
+    // Valid arXiv link
     resultDiv.innerHTML = '<p id="success">Valid arXiv link!</p>';
+
+    // Redirect to the specified URL
+    window.location.href = 'http://127.0.0.1:8000/get_data_from_url';
   } else {
+    // Invalid arXiv link
     resultDiv.innerHTML = '<p id="error">Invalid arXiv link. Please provide a valid link.</p>';
   }
+}
+
+
+
+
+
+
+
+
+
+const form1 = document.getElementById('check');
+const userInputField = document.getElementById('arxivLink');
+
+form1.addEventListener('submit', (event) => {
+  const userInput = userInputField.value.trim(); // Trim extra spaces
+
+  // Validate user input if necessary (e.g., check for invalid characters)
+
+  // Determine the appropriate action URL based on user input
+ 
+   // Set the form's action attribute to the chosen URL
+   form1.action = "http://127.0.0.1:8000/get_data_from_url?arxiv_url="+userInput;
+
+   // Optionally, prevent default form submission to allow further processing
+   // if needed (e.g., for AJAX requests)
+   // event.preventDefault();
+ });
+
+//  function openNav() {
+//   document.getElementById("mySidenav").style.width = "250px";
+//   document.getElementById("main").style.marginLeft = "250px";
+// }
+
+// function closeNav() {
+//   document.getElementById("mySidenav").style.width = "0";
+//   document.getElementById("main").style.marginLeft= "0";
+// }
+function openNav() {
+  document.getElementById("mySidenav").style.width = "100%"; // Set width to 100% to cover the whole webpage
+  document.getElementById("mySidenav").style.height = "98vh"; // Set height to 90% of viewport height
+}
+
+function closeNav() {
+  document.getElementById("mySidenav").style.width = "0"; // Set width to 0 to close the side navigation
 }
