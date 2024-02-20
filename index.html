@@ -27,15 +27,18 @@
     <div class="active-section colorful" id="file-uploader">
       <header>File Uploader JavaScript</header>
       <form enctype="multipart/form-data" method="post">
-        <input class="file-input" type="file" name="file" hidden accept=".pdf">
         <i class="fas fa-cloud-upload-alt"></i>
+        <input class="file-input" type="file" name="file" hidden accept=".pdf">
         <p>Browse PDF File to Upload</p>
       </form>
       <section class="progress-area"></section>
       <section class="uploaded-area"></section>
       <button class="colorful btnsub" type="submit" onclick="submission()">submit</button>
+    </div>
+    <div class="active-section colorful" id="file-uploader1">
       <button id="switch-to-link-verifier">Switch to Link Verifier</button>
     </div>
+    
 
     <!-- Move the "Paste ArXiv Link" section here -->
     <div class="inactive-section colorful" id="link-verifier">

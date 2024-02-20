@@ -1,20 +1,23 @@
 const form = document.querySelector("form"),
-fileInput = document.querySelector(".file-input"),
-progressArea = document.querySelector(".progress-area"),
-uploadedArea = document.querySelector(".uploaded-area");
+  fileInput = document.querySelector(".file-input"),
+  progressArea = document.querySelector(".progress-area"),
+  uploadedArea = document.querySelector(".uploaded-area");
 arxivLinkInput = document.getElementById("arxivLink"),
-resultDiv = document.getElementById("result");
-form.addEventListener("click", () =>{
-  fileInput.click();
-});
+  resultDiv = document.getElementById("result");
 const fileUploader = document.getElementById('file-uploader');
+const fileUploader1 = document.getElementById('file-uploader1');
 const linkVerifier = document.getElementById('link-verifier');
 const switchToFileUploaderButton = document.getElementById('switch-to-file-uploader');
 const switchToLinkVerifierButton = document.getElementById('switch-to-link-verifier');
 
+form.addEventListener("click", () => {
+  fileInput.click();
+});
 switchToLinkVerifierButton.addEventListener('click', () => {
   fileUploader.classList.add('inactive-section');
   fileUploader.classList.remove('active-section');
+  fileUploader1.classList.add('inactive-section');
+  fileUploader1.classList.remove('active-section');
   linkVerifier.classList.add('active-section');
   linkVerifier.classList.remove('inactive-section');
 });
@@ -24,18 +27,20 @@ switchToFileUploaderButton.addEventListener('click', () => {
   linkVerifier.classList.remove('active-section');
   fileUploader.classList.add('active-section');
   fileUploader.classList.remove('inactive-section');
+  fileUploader1.classList.add('active-section');
+  fileUploader1.classList.remove('inactive-section');
 });
 
-function submission(){
+function submission() {
   form.action = "http://127.0.0.1:8000/extract-text";
   form.submit();
-  };
+};
 
-fileInput.onchange = ({target})=>{
+fileInput.onchange = ({ target }) => {
   let file = target.files[0];
-  if(file){
+  if (file) {
     let fileName = file.name;
-    if(fileName.length >= 12){
+    if (fileName.length >= 12) {
       let splitName = fileName.split('.');
       fileName = splitName[0].substring(0, 13) + "... ." + splitName[1];
     }
@@ -43,14 +48,14 @@ fileInput.onchange = ({target})=>{
   }
 }
 
-function uploadFile(name){
+function uploadFile(name) {
   let xhr = new XMLHttpRequest();
   xhr.open("POST", "php/upload.php");
-  xhr.upload.addEventListener("progress", ({loaded, total}) =>{
+  xhr.upload.addEventListener("progress", ({ loaded, total }) => {
     let fileLoaded = Math.floor((loaded / total) * 100);
     let fileTotal = Math.floor(total / 1000);
     let fileSize;
-    (fileTotal < 1024) ? fileSize = fileTotal + " KB" : fileSize = (loaded / (1024*1024)).toFixed(2) + " MB";
+    (fileTotal < 1024) ? fileSize = fileTotal + " KB" : fileSize = (loaded / (1024 * 1024)).toFixed(2) + " MB";
     let progressHTML = `<li class="row">
                           <i class="fas fa-file-alt"></i>
                           <div class="content">
@@ -65,7 +70,7 @@ function uploadFile(name){
                         </li>`;
     uploadedArea.classList.add("onprogress");
     progressArea.innerHTML = progressHTML;
-    if(loaded == total){
+    if (loaded == total) {
       progressArea.innerHTML = "";
       let uploadedHTML = `<li class="row">
                             <div class="content upload">
@@ -120,14 +125,14 @@ form1.addEventListener('submit', (event) => {
   // Validate user input if necessary (e.g., check for invalid characters)
 
   // Determine the appropriate action URL based on user input
- 
-   // Set the form's action attribute to the chosen URL
-   form1.action = "http://127.0.0.1:8000/get_data_from_url?arxiv_url="+userInput;
 
-   // Optionally, prevent default form submission to allow further processing
-   // if needed (e.g., for AJAX requests)
-   // event.preventDefault();
- });
+  // Set the form's action attribute to the chosen URL
+  form1.action = "http://127.0.0.1:8000/get_data_from_url?arxiv_url=" + userInput;
+
+  // Optionally, prevent default form submission to allow further processing
+  // if needed (e.g., for AJAX requests)
+  // event.preventDefault();
+});
 
 //  function openNav() {
 //   document.getElementById("mySidenav").style.width = "250px";
