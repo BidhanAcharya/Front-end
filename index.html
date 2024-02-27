@@ -16,21 +16,15 @@
       <a href="javascript:void(0)" class="closebtn" onclick="closeNav()"
         >&times;</a
       >
-      <iframe
-        class="iframe"
-        src="https://tunepal-my.sharepoint.com/personal/bidhan_772417_thc_tu_edu_np/_layouts/15/Doc.aspx?sourcedoc={76b8cdbd-1976-4266-ae63-31573776fbf2}&amp;action=embedview&amp;wdAr=1.3333333333333333"
-      ></iframe>
-
-      <!-- New div for images -->
-      <div style="color:white; position:absolute ; right:80px; top: 45px; font-size: 15px;">Choose your Template</div>
-      <div id="imageContainer" class="image-container">
-        <img src="imagecheck/theme1.png" alt="Image 1" />
-        <img src="imagecheck/theme2.png" alt="Image 2" />
-        <img src="imagecheck/theme3.png" alt="Image 3" />
-        <img src="imagecheck/theme4.png" alt="Image 4" />
-        <img src="imagecheck/theme5.png" alt="Image 5" />
-        <img src="imagecheck/theme6.png" alt="Image 6" />
-      </div>
+      <div id="image-container">
+        <img id="slider-image" src=""alt="Image" />
+        <div class="buttons">
+            <div class="next-prev">
+                <button class="button" onclick="prevImage()">Prev</button>
+                <button class="button" onclick="nextImage()">Next</button>
+            </div>
+        </div>
+    </div>
     </div>
 
     <div class="top-left">
