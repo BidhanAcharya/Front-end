@@ -151,3 +151,48 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0"; // Set width to 0 to close the side navigation
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Get all the image elements
+const images = document.querySelectorAll('.image-container img');
+
+// Loop through each image and add a click event listener
+images.forEach(image => {
+    image.addEventListener('click', function() {
+        // Get the image number from its id
+        const imageNumber = image.id.replace('image', '');
+
+        // Update the path based on the clicked image
+        const newPath = `theme/theme${imageNumber}.pptx`;
+
+        // Now you can use `newPath` in your code
+        console.log(newPath);
+
+        // For demonstration, I'll assume you want to load the new presentation here
+        // You can replace this with your actual code to load the PPTX
+        loadPresentation(newPath);
+    });
+});
+
+function loadPresentation(path) {
+    // Here you can put your code to load the presentation
+    // For example:
+    // prs = pptx.Presentation(path);
+    console.log('Loading presentation from:', path);
+}

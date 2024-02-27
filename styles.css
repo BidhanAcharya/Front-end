@@ -27,6 +27,12 @@ body {
   color: #fff;
   background: #6990F2;
 }
+.sidenav {
+  border: none; /* Remove the border */
+}
+.bottom-section {
+  margin-left: 40px; /* Add left spacing */
+}
 
 .wrapper {
   width: 430px;
@@ -42,6 +48,8 @@ body {
   font-weight: 600;
   text-align: center;
 }
+
+
 
 .wrapper form {
   height: 167px;
@@ -205,7 +213,7 @@ section .details span {
   z-index: 1;
   top: 0;
   left: 0;
-  background-color: #111;
+  background-color: #2e5663;
   overflow-x: hidden;
   transition: 0.5s;
   padding-top: 60px;
@@ -245,4 +253,36 @@ section .details span {
   position: absolute;
   top: 10px;
   left: 10px;
+}
+
+
+.iframe{
+  margin-left: 20px;
+  width:70%; 
+  height:90vh; 
+  border: none;
+  position: absolute;
+  top: 30px;
+}
+
+
+/* for checking  */
+.image-container {
+  width: 20%; /* Adjust this as needed */
+  height: 82.5%; /* Full height of the sidebar */
+  overflow-y: auto; /* Enable vertical scrolling */
+  overflow-x: hidden; /* Hide horizontal scrollbar */
+  position: absolute; /* Position relative to parent */
+  top: 80px;
+  right: 30px;
+  padding: 10px;
+  background-color: #95a8ac;
+  border: 2px solid rgb(178, 219, 219);
+}
+
+.image-container img {
+  display: block;
+  margin-bottom: 10px;
+  max-width: 100%; /* Ensure images don't exceed container width */
+  height: auto;
 }

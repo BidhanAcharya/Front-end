@@ -10,7 +10,7 @@ def find_match(column_name):
 def sjoin(x): return ';'.join(x[x.notnull()].astype(str))
 
 def gemini_summarize(textdata):
-    API_KEY = '' #add key here
+    API_KEY = 'AIzaSyBdUVBrjuXIn8aGYYp-bEg-EYK4Y2tGvMw' 
     genai.configure(api_key= API_KEY)
 
     model = genai.GenerativeModel('gemini-pro')
