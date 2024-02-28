@@ -151,8 +151,6 @@ function openNav() {
 function closeNav() {
   document.getElementById("mySidenav").style.width = "0"; // Set width to 0 to close the side navigation
 }
-
-// Get all the image elements
 const images = document.querySelectorAll(".image-container img");
 
 // Loop through each image and add a click event listener
@@ -165,7 +163,7 @@ images.forEach((image) => {
     const newPath = `theme/theme${imageNumber}.pptx`;
 
     // Now you can use `newPath` in your code
-    console.log(newPath);
+    // console.log(newPath);
 
     // For demonstration, I'll assume you want to load the new presentation here
     // You can replace this with your actual code to load the PPTX
@@ -177,8 +175,9 @@ function loadPresentation(path) {
   // Here you can put your code to load the presentation
   // For example:
   // prs = pptx.Presentation(path);
-  console.log("Loading presentation from:", path);
+  // console.log("Loading presentation from:", path);
 }
+
 
 let currentImageIndex = 0;
 const folderPath = "imagecheck/"; // Path to your "slides" folder
@@ -234,4 +233,26 @@ function nextImage() {
 function prevImage() {
   showImage(currentImageIndex - 1);
 }
+
+let selectedImage = null;
+
+function setImage(imageName) {
+  selectedImage = imageName;
+  console.log(selectedImage);
+  // You can do more here, like updating another part of the page with the selected image
+  fetch("http://127.0.0.1:8000/theme-select", {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ "theme": selectedImage})
+  })
+  .then(response => response.json())
+  .then(data => {
+    console.log("Response from server:", data);
+  })
+  .catch(error => console.error("Error:", error));
+}
+
+
 

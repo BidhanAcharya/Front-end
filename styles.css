@@ -274,7 +274,7 @@ section .details span {
   overflow-x: hidden; /* Hide horizontal scrollbar */
   position: absolute; /* Position relative to parent */
   top: 80px;
-  right: 30px;
+  right: 20px;
   padding: 10px;
   background-color: #95a8ac;
   border: 2px solid rgb(178, 219, 219);
@@ -288,11 +288,14 @@ section .details span {
 }
 
 #image-container {
-  margin: 10px 270px 0px ;
+  position:absolute;
+  top: 70px;
+  left: 200px;
   text-align: center;
   padding: 10px;
   border: 2px solid rgb(42, 43, 43);
   border-radius: 10px;
+
 }
 img {
   max-width: 650px;
@@ -325,4 +328,16 @@ img {
 }
 .button:hover {
   background-color: rgb(62, 140, 140);
+}
+
+.checkimage {
+
+  max-height: 300px; /* Limit height of the image container */
+  margin-right: 60px; /* Add margin to the right of the image container */
+  overflow-x: hidden;
+}
+.checkimage{
+  display: block;
+  margin: 14px auto; /* Genuine spacing between images */
+  max-width: 150px; /* Limit width of images */
 }

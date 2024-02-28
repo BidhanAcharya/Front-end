@@ -6,11 +6,40 @@ from pdftools import *
 from pptxtools import *
 from gemini import gemini_summarize
 from presentify_model import summarize
+from fastapi.middleware.cors import CORSMiddleware
+from fastapi import Body
+from pydantic import BaseModel
+
 
 pdf=PDF()
 presentation=PresentationData()
 
+
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware, 
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
+# Define a Pydantic model for the incoming JSON data
+class ThemeSelectData(BaseModel):
+    theme: str
+
+@app.post('/theme-select')
+async def theme_select(data: ThemeSelectData):
+    selected_theme = data.theme
+    # Process the received value here
+    return {"message": "Value received: {}".format(selected_theme)}
+    
+
+
+
+
+
+
 
 
 def presentation(data_dict,presentation_title,presentation_author):
@@ -24,6 +53,7 @@ def presentation(data_dict,presentation_title,presentation_author):
     background_color = "white"
     
     prs = pptx.Presentation()
+
 
     prs.slide_width = Inches(16)
     prs.slide_height = Inches(9)
